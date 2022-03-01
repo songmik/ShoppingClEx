@@ -1,6 +1,8 @@
 package com.example.a24_shopping.data.network
 
 import com.example.a24_shopping.BuildConfig
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -20,6 +22,14 @@ internal fun provideProductRetrofit(
         .addConverterFactory(gsonConverterFactory)
         .client(okHttpClient)
         .build()
+}
+
+internal fun provideGsonConverterFactory(): GsonConverterFactory{
+    return GsonConverterFactory.create(
+        GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create()
+    )
 }
 
 internal fun buildOkHttpClient(): OkHttpClient{
