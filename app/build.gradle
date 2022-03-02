@@ -67,5 +67,11 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0'
 
+    //viewModel ktx
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    //fragment
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
 
 }
