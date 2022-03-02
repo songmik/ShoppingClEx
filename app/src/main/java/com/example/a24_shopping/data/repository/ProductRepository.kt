@@ -14,6 +14,8 @@ interface ProductRepository {
 
     suspend fun updateProductItem(itemId: Long): ProductEntity?
 
+    suspend fun getProductItem(itemId: Long): ProductEntity?
+
     suspend fun deleteAll()
 
     suspend fun deleteProductItem(id: Long)

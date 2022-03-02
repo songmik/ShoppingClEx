@@ -6,6 +6,10 @@ import org.koin.android.ext.android.inject
 
 internal class ProfileFragment: BaseFragment<ProfileViewModel, FragmentProductListBinding>() {
 
+    companion object{
+        const val TAG = "ProfileFragment"
+    }
+
     override val viewModel by inject<ProfileViewModel>()
 
     override fun getViewBinding(): FragmentProductListBinding = FragmentProductListBinding.inflate(layoutInflater)

@@ -31,6 +31,10 @@ class DefaultProductRepository(
         TODO("Not yet implemented")
     }
 
+    override suspend fun getProductItem(itemId: Long): ProductEntity? {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun deleteAll() = withContext(ioDispatcher) {
         TODO("Not yet implemented")
     }
