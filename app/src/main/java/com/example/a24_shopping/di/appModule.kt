@@ -1,5 +1,7 @@
 package com.example.a24_shopping.di
 
+import com.example.a24_shopping.data.db.provideDB
+import com.example.a24_shopping.data.db.provideToDoDao
 import com.example.a24_shopping.data.network.buildOkHttpClient
 import com.example.a24_shopping.data.network.provideGsonConverterFactory
 import com.example.a24_shopping.data.network.provideProductApiService
@@ -21,7 +23,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule = module {
+internal val appModule = module {
 
     //coroutine
     single { Dispatchers.Main }

@@ -12,15 +12,20 @@ class DefaultProductRepository(
     private val ioDispatcher: CoroutineDispatcher
 ): ProductRepository {
     override suspend fun getProductList(): List<ProductEntity> = withContext(ioDispatcher) {
-        TODO("Not yet implemented")
+        val response = productAPi.getProducts()
+        return@withContext if (response.isSuccessful){
+            response.body()?.items?.map { it.toEntity() }?: listOf()
+        } else {
+            listOf()
+        }
     }
 
     override suspend fun getLocalProductList(): List<ProductEntity> = withContext(ioDispatcher) {
-        TODO("Not yet implemented")
+        productDao.getAll()
     }
 
     override suspend fun insertProductItem(ProductItem: ProductEntity): Long = withContext(ioDispatcher) {
-        TODO("Not yet implemented")
+        productDao.insert(ProductItem)
     }
 
     override suspend fun insertProductList(ProductList: List<ProductEntity>) {
@@ -31,12 +36,17 @@ class DefaultProductRepository(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getProductItem(itemId: Long): ProductEntity? {
-        TODO("Not yet implemented")
+    override suspend fun getProductItem(itemId: Long): ProductEntity? = withContext(ioDispatcher) {
+        val response = productAPi.getProduct(itemId)
+        return@withContext if (response.isSuccessful){
+            response.body()?.toEntity()
+        } else {
+            null
+        }
     }
 
     override suspend fun deleteAll() = withContext(ioDispatcher) {
-        TODO("Not yet implemented")
+        productDao.deleteAll()
     }
 
     override suspend fun deleteProductItem(id: Long) {

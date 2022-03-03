@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -52,9 +53,9 @@ dependencies {
     implementation 'org.koin:koin-android-ext:2.1.5'
 
     // Room library
-    implementation "androidx.room:room-runtime:2.4.1"
-    kapt "androidx.room:room-compiler:2.4.1"
-    implementation "androidx.room:room-ktx:2.4.1"
+    implementation "androidx.room:room-runtime:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
 
     //retrofit, okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.6.0'
@@ -70,8 +71,29 @@ dependencies {
     //viewModel ktx
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+
+    // AndroidX
+    implementation "androidx.fragment:fragment-ktx:1.4.1"
+
     //fragment
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    kapt 'com.github.bumptech.glide:compiler:4.13.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.0'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    //Swipe Refresh Layout
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:30.0.3'
 
 
 }

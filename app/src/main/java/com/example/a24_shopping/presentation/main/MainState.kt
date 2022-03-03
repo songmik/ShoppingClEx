@@ -1,4 +1,6 @@
 package com.example.a24_shopping.presentation.main
 
-class MainState {
+sealed class MainState {
+
+    object RefreshOrderList: MainState()
 }
