@@ -9,6 +9,7 @@ import com.example.a24_shopping.databinding.FragmentProductListBinding
 import com.example.a24_shopping.databinding.FragmentProfileBinding
 import com.example.a24_shopping.presentation.BaseFragment
 import com.example.a24_shopping.presentation.adapter.ProductListAdapter
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
@@ -38,7 +39,7 @@ internal class ProfileFragment: BaseFragment<ProfileViewModel, FragmentProductLi
 
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK){
-            val task = GoogleSignIn.getSignedInAcctountFromIntent(result.data)
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             try{
               task.getResult(ApiException::class.java)?.let{ account ->
                   Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
