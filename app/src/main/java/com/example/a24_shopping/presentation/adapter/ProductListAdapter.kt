@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a24_shopping.data.entity.product.ProductEntity
+import com.example.a24_shopping.databinding.ViewholderProductItemBinding
 
 class ProductListAdapter :RecyclerView.Adapter<ProductListAdapter.ProductItemViewHolder>() {
 

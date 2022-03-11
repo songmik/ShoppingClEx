@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter" />
-
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -46,30 +46,77 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="4dp"
-                    android:background=""
+                    android:background="@drawable/bg_round_corner_8_black"
+                    app:layout_constraintDimensionRatio="w,1:2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/productPriceTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/productPriceTextView"
-                    app:layout_constraintEnd_toEndOf="@id/productImageView"
-                    app:layout_constraintTop_toBottomOf="@id/productImageView"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="12dp"
                     android:layout_marginBottom="?attr/actionBarSize"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="1000원"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    android:layout_marginEnd="12dp"/>
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/productImageView"
+                    app:layout_constraintTop_toBottomOf="@id/productImageView"
+                    tools:text="1000원" />
 
+                <TextView
+                    android:id="@+id/productCategoryTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/productPriceTextView"
+                    app:layout_constraintStart_toStartOf="@id/productImageView"
+                    app:layout_constraintTop_toTopOf="@id/productPriceTextView"
+                    tools:text="asdfasdf" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                tools:title="asdfasdfasdf" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/orderButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="6dp"
+        android:background="@color/design_default_color_primary"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/order"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

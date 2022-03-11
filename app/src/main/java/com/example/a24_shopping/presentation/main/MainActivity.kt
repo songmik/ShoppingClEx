@@ -69,17 +69,4 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
         }
     }
 
-    private fun showFragment(fragment: Fragment, tag: String) {
-        val findFragment = supportFragmentManager.findFragmentByTag(tag)
-        supportFragmentManager.fragments.forEach { fm ->
-            supportFragmentManager.beginTransaction().hide(fm).commit()
-        }
-        findFragment?.let {
-            supportFragmentManager.beginTransaction().show(it).commit()
-        } ?:kotlin.run {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentContainer, fragment, tag)
-                .commitAllowingStateLoss()
-        }
-    }
 }
